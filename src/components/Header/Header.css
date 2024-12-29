@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: var(--primary-color);
+    background: whitesmoke;
     color: var(--text-color);
     padding: 0.5rem 1rem;
     position: sticky;
@@ -23,6 +23,11 @@
     font-size: 1.5rem;
     margin-right: 1rem;
     cursor: pointer;
+  }
+
+  .logo-image {
+    max-width: 10rem;
+    margin-left: 0%;
   }
 
   .logo {

@@ -1,134 +1,354 @@
 // import React, { useState } from "react";
+// import { useNavigate } from "react-router-dom";
+// import { useAuth } from "../../context/AuthContext";
+// import { FaUserTie, FaUserAlt } from "react-icons/fa"; // Import profile icons
+// import Logo from "../../assests/YaChit_Logo_Default.png";
+// import "./Login.css";
 
-// const Login = () => {
-//   const [email, setEmail] = useState("");
-//   const [password, setPassword] = useState("");
+// const Login = ({ onLogin }) => {
+//   const [isSignIn, setIsSignIn] = useState(true); // Toggle between Sign In and Sign Up
+//   const [userType, setUserType] = useState("client"); // Default user type
+//   const [selectedRole, setSelectedRole] = useState("Client"); // Dropdown state
+//   const [formData, setFormData] = useState({
+//     email: "",
+//     firstName: "",
+//     lastName: "",
+//     password: "",
+//   });
+//   const [errors, setErrors] = useState({});
+//   const { login } = useAuth(); // Access the login function from context
+//   const navigate = useNavigate();
 
-//   const handleLogin = (e) => {
+//   const toggleForm = () => {
+//     setIsSignIn(!isSignIn); // Toggle between Sign In and Sign Up forms
+//   };
+
+//   const handleRoleChange = (e) => {
+//     setSelectedRole(e.target.value); // Update the selected role
+//   };
+
+//   const handleInputChange = (e) => {
+//     const { name, value } = e.target;
+//     setFormData({ ...formData, [name]: value });
+//   };
+
+//   const validateForm = () => {
+//     let validationErrors = {};
+
+//     // Email validation
+//     if (!formData.email) {
+//       validationErrors.email = "Email is required.";
+//     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+//       validationErrors.email = "Invalid email address.";
+//     }
+
+//     // First name validation
+//     if (!isSignIn && !formData.firstName.trim()) {
+//       validationErrors.firstName = "First name is required.";
+//     }
+
+//     // Last name validation
+//     if (!isSignIn && !formData.lastName.trim()) {
+//       validationErrors.lastName = "Last name is required.";
+//     }
+
+//     // Password validation
+//     if (!formData.password) {
+//       validationErrors.password = "Password is required.";
+//     } else if (formData.password.length < 8) {
+//       validationErrors.password = "Password must be at least 8 characters long.";
+//     } else if (!/[A-Z]/.test(formData.password)) {
+//       validationErrors.password = "Password must include at least one uppercase letter.";
+//     } else if (!/[a-z]/.test(formData.password)) {
+//       validationErrors.password = "Password must include at least one lowercase letter.";
+//     } else if (!/[0-9]/.test(formData.password)) {
+//       validationErrors.password = "Password must include at least one number.";
+//     }
+
+//     setErrors(validationErrors);
+//     return Object.keys(validationErrors).length === 0;
+//   };
+
+//   const handleFormSubmit = (e) => {
 //     e.preventDefault();
-//     // Add your login logic here
-//     alert(`Logged in as ${email}`);
+//     if (!validateForm()) return; // Stop if form is invalid
+//     console.log(`Selected Role: ${selectedRole}`);
+//     console.log("Form Data:", formData);
+//     login(); // Trigger login callback
+//     navigate("/"); // Redirect to the homepage
 //   };
 
 //   return (
-//     <main className="login">
-//       <h2>Login</h2>
-//       <form onSubmit={handleLogin}>
-//         <div className="form-group">
-//           <label>Email:</label>
-//           <input
-//             type="email"
-//             value={email}
-//             onChange={(e) => setEmail(e.target.value)}
-//             required
-//           />
-//         </div>
-//         <div className="form-group">
-//           <label>Password:</label>
-//           <input
-//             type="password"
-//             value={password}
-//             onChange={(e) => setPassword(e.target.value)}
-//             required
-//           />
-//         </div>
-//         <button type="submit">Login</button>
-//       </form>
-//     </main>
+//     <div className="signin-signup-card">
+//       {/* Left Section: Logo */}
+//       <div className="card-left">
+//         <img src={Logo} alt="Company Logo" className="company-logo" />
+//       </div>
+
+//       {/* Right Section: Form */}
+//       <div className="card-right">
+//         <h2>{isSignIn ? "Sign In" : "Sign Up"}</h2>
+//         <form onSubmit={handleFormSubmit}>
+//           <div className="form-group">
+//             <label htmlFor="role">Login As:</label>
+//             <select
+//               id="role"
+//               value={selectedRole}
+//               onChange={handleRoleChange}
+//               className="form-dropdown"
+//               required
+//             >
+//               <option value="Vendor">Vendor</option>
+//               <option value="Client">Client</option>
+//             </select>
+//           </div>
+//           {!isSignIn && (
+//             <>
+//               <div className="form-group">
+//                 <label htmlFor="firstName">First Name</label>
+//                 <input
+//                   type="text"
+//                   id="firstName"
+//                   name="firstName"
+//                   value={formData.firstName}
+//                   onChange={handleInputChange}
+//                   placeholder="Enter your first name"
+//                 />
+//                 {errors.firstName && <small className="error-text">{errors.firstName}</small>}
+//               </div>
+//               <div className="form-group">
+//                 <label htmlFor="lastName">Last Name</label>
+//                 <input
+//                   type="text"
+//                   id="lastName"
+//                   name="lastName"
+//                   value={formData.lastName}
+//                   onChange={handleInputChange}
+//                   placeholder="Enter your last name"
+//                 />
+//                 {errors.lastName && <small className="error-text">{errors.lastName}</small>}
+//               </div>
+//             </>
+//           )}
+//           <div className="form-group">
+//             <label htmlFor="email">Email</label>
+//             <input
+//               type="email"
+//               id="email"
+//               name="email"
+//               value={formData.email}
+//               onChange={handleInputChange}
+//               placeholder="Enter your email"
+//             />
+//             {errors.email && <small className="error-text">{errors.email}</small>}
+//           </div>
+//           <div className="form-group">
+//             <label htmlFor="password">Password</label>
+//             <input
+//               type="password"
+//               id="password"
+//               name="password"
+//               value={formData.password}
+//               onChange={handleInputChange}
+//               placeholder="Enter your password"
+//             />
+//             {errors.password && <small className="error-text">{errors.password}</small>}
+//           </div>
+//           <button type="submit" className="form-button">
+//             {isSignIn ? "Sign In" : "Sign Up"}
+//           </button>
+//         </form>
+//         <p className="toggle-text">
+//           {isSignIn ? "Don't have an account?" : "Already have an account?"}{" "}
+//           <span onClick={toggleForm} className="toggle-link">
+//             {isSignIn ? "Sign Up" : "Sign In"}
+//           </span>
+//         </p>
+//       </div>
+//     </div>
 //   );
 // };
 
 // export default Login;
 
 
-// SignInSignUpCard.js
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
-import { FaUserTie, FaUserAlt } from "react-icons/fa"; // Import profile icons
+import Logo from "../../assests/YaChit_Logo_Default.png";
 import "./Login.css";
 
 const Login = ({ onLogin }) => {
-    const [isSignIn, setIsSignIn] = useState(true); // Toggle between Sign In and Sign Up
-    const [userType, setUserType] = useState("client"); // Default user type
-//   const [login, setlogin] = useState(true);
-  const { login } = useAuth();  // Access the login function from context
+  const [isSignIn, setIsSignIn] = useState(true); // Toggle between Sign In and Sign Up
+  const [selectedRole, setSelectedRole] = useState("Client"); // Dropdown state
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+    firstName: "",
+    lastName: "",
+  });
+  const [errors, setErrors] = useState({});
+  const { login } = useAuth(); // Access the login function from context
   const navigate = useNavigate();
+
+  // Sample user data for validation
+  const userData = [
+    { email: "yash@gmail.com", password: "User1234", role: "Vendor" },
+    { email: "chitransh@gmail.com", password: "Client1234", role: "Client" },
+  ];
 
   const toggleForm = () => {
     setIsSignIn(!isSignIn); // Toggle between Sign In and Sign Up forms
   };
 
-  const handleUserTypeChange = (type) => {
-    setUserType(type); // Update user type
+  const handleRoleChange = (e) => {
+    setSelectedRole(e.target.value); // Update the selected role
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const validateForm = () => {
+    let validationErrors = {};
+
+    // Email validation
+    if (!formData.email) {
+      validationErrors.email = "Email is required.";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      validationErrors.email = "Invalid email address.";
+    }
+
+    // Password validation
+    if (!formData.password) {
+      validationErrors.password = "Password is required.";
+    } else if (formData.password.length < 8) {
+      validationErrors.password = "Password must be at least 8 characters long.";
+    }
+
+    // Additional validations for Sign Up
+    if (!isSignIn) {
+      if (!formData.firstName.trim()) {
+        validationErrors.firstName = "First name is required.";
+      }
+      if (!formData.lastName.trim()) {
+        validationErrors.lastName = "Last name is required.";
+      }
+    }
+
+    setErrors(validationErrors);
+    return Object.keys(validationErrors).length === 0;
   };
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    login(); // Trigger login callback
-    navigate("/"); // Redirect to the homepage
-    console.log("From Login.js handleFormSubmit: "+login);
-  };
+    if (!validateForm()) return; // Stop if form is invalid
 
-  const handleLogin = () => {
-    // setlogin(true); // Update the login state
-    login();
-    console.log("From Login.js handleLogin: "+login);
+    if (isSignIn) {
+      // Validate email and password against userData
+      const user = userData.find(
+        (user) => user.email === formData.email && user.password === formData.password
+      );
+
+      if (user) {
+        console.log("Login successful");
+        console.log(`Logged in as ${user.role}`);
+        login(); // Trigger login callback
+        navigate("/"); // Redirect to the homepage
+      } else {
+        setErrors({ email: "Invalid email or password." });
+      }
+    } else {
+      console.log("Sign up successful. Form data:", formData);
+      // You can add sign-up logic here
+      navigate("/welcome"); // Redirect to a welcome page after sign-up
+    }
   };
 
   return (
     <div className="signin-signup-card">
       {/* Left Section: Logo */}
       <div className="card-left">
-        <img src="/path-to-your-logo/logo.png" alt="Company Logo" className="company-logo" />
+        <img src={Logo} alt="Company Logo" className="company-logo" />
       </div>
-
-      {/* User Type Selector */}
-        {/* <div className="user-type-selector">
-          <button
-            className={`user-type-button ${
-              userType === "client" ? "active" : ""
-            }`}
-            onClick={() => handleUserTypeChange("client")}
-          >
-            <FaUserAlt size={24} className="icon" /> Client
-          </button>
-          <button
-            className={`user-type-button ${
-              userType === "vendor" ? "active" : ""
-            }`}
-            onClick={() => handleUserTypeChange("vendor")}
-          >
-            <FaUserTie size={24} className="icon" /> Vendor
-          </button>
-        </div> */}
 
       {/* Right Section: Form */}
       <div className="card-right">
         <h2>{isSignIn ? "Sign In" : "Sign Up"}</h2>
-        <form>
+        <form onSubmit={handleFormSubmit}>
+          <div className="form-group">
+            <label htmlFor="role">Login As:</label>
+            <select
+              id="role"
+              value={selectedRole}
+              onChange={handleRoleChange}
+              className="form-dropdown"
+              required
+            >
+              <option value="Vendor">Vendor</option>
+              <option value="Client">Client</option>
+            </select>
+          </div>
           {!isSignIn && (
-            <div className="form-group">
-              <label htmlFor="name">Name</label>
-              <input type="text" id="name" placeholder="Enter your name" required={!isSignIn}/>
-            </div>
+            <>
+              <div className="form-group">
+                <label htmlFor="firstName">First Name</label>
+                <input
+                  type="text"
+                  id="firstName"
+                  name="firstName"
+                  value={formData.firstName}
+                  onChange={handleInputChange}
+                  placeholder="Enter your first name"
+                />
+                {errors.firstName && <small className="error-text">{errors.firstName}</small>}
+              </div>
+              <div className="form-group">
+                <label htmlFor="lastName">Last Name</label>
+                <input
+                  type="text"
+                  id="lastName"
+                  name="lastName"
+                  value={formData.lastName}
+                  onChange={handleInputChange}
+                  placeholder="Enter your last name"
+                />
+                {errors.lastName && <small className="error-text">{errors.lastName}</small>}
+              </div>
+            </>
           )}
           <div className="form-group">
             <label htmlFor="email">Email</label>
-            <input type="email" id="email" placeholder="Enter your email" required/>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleInputChange}
+              placeholder="Enter your email"
+            />
+            {errors.email && <small className="error-text">{errors.email}</small>}
           </div>
           <div className="form-group">
             <label htmlFor="password">Password</label>
-            <input type="password" id="password" placeholder="Enter your password" />
+            <input
+              type="password"
+              id="password"
+              name="password"
+              value={formData.password}
+              onChange={handleInputChange}
+              placeholder="Enter your password"
+            />
+            {errors.password && <small className="error-text">{errors.password}</small>}
           </div>
-          <button type="submit" className="form-button" onClick={handleFormSubmit}>
+          <button type="submit" className="form-button">
             {isSignIn ? "Sign In" : "Sign Up"}
           </button>
         </form>
         <p className="toggle-text">
           {isSignIn ? "Don't have an account?" : "Already have an account?"}{" "}
-          {/* <span onClick={() => setlogin(!login)} className="toggle-link"> */}
-          <span onClick={handleLogin} className="toggle-link">
+          <span onClick={toggleForm} className="toggle-link">
             {isSignIn ? "Sign Up" : "Sign In"}
           </span>
         </p>

@@ -12,7 +12,7 @@
   
   .card-left {
     width: 50%;
-    background-color: #f26e22; /* Primary color */
+    background-color: whitesmoke; /* Primary color */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -126,4 +126,24 @@
     color: #007bff;
     border-color: #007bff;
   } */
+  .form-dropdown {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  .form-dropdown:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  .error-text {
+    color: red;
+    font-size: 12px;
+    margin-top: 4px;
+    display: block;
+  }
   

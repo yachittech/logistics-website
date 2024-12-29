@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaUserCircle } from "react-icons/fa";
 import "./Header.css";
 import { useAuth } from "../../context/AuthContext";
+import Logo from "../../assests/YaChit_Logo_Default.png";
 
 // const Header = ({ isLoggedIn, setIsLoggedIn }) => {
 const Header = () => {
@@ -42,8 +43,8 @@ const Header = () => {
             >
             <span className="menu-icon">☰</span>
           </button>
-          <h1 className="logo" onClick={handleLogoClick} role="button" tabIndex="0">YaChit</h1>
-          {/* <div><img src="/path-to-your-logo/logo.png" alt="Company Logo" className="logo-image" /></div> */}
+          {/* <h1 className="logo" onClick={handleLogoClick} role="button" tabIndex="0">YaChit</h1> */}
+          <div><img src={Logo} className="logo-image" onClick={handleLogoClick} role="button" /></div>
           
         
         {/* Navigation */}

@@ -252,17 +252,17 @@ const Login = ({ onLogin }) => {
       );
 
       if (user) {
-        console.log("Login successful");
-        console.log(`Logged in as ${user.role}`);
         login(); // Trigger login callback
         navigate("/"); // Redirect to the homepage
+      } else if (user.email != formData.email) {
+        setErrors({ email: "Invalid email." });
       } else {
-        setErrors({ email: "Invalid email or password." });
+        setErrors({ email: "Invalid password." });
       }
     } else {
       console.log("Sign up successful. Form data:", formData);
       // You can add sign-up logic here
-      navigate("/welcome"); // Redirect to a welcome page after sign-up
+      navigate("/"); // Redirect to a welcome page after sign-up
     }
   };
 

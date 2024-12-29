@@ -15,12 +15,6 @@
   }
   
   /* Header styles */
-  .header {
-    background: var(--primary-color);
-    color: var(--text-color);
-    text-align: center;
-    padding: 1rem 0;
-  }
   
   .header nav a {
     color: var(--text-color);
@@ -33,13 +27,6 @@
     text-decoration: underline;
   }
   
-  /* Footer styles */
-  .footer {
-    background: var(--secondary-color);
-    color: var(--text-color);
-    text-align: center;
-    padding: 1rem 0;
-  }
   
   /* Hero section */
   .hero {

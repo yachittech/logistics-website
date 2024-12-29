@@ -1,0 +1,131 @@
+/* Define colors */
+:root {
+    --primary-color: #f26e22;
+    --secondary-color: #4f48d4;
+    --text-color: #fff;
+    --background-color: #f4f4f4;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: #333;
+  }
+  
+  /* Header styles */
+  .header {
+    background: var(--primary-color);
+    color: var(--text-color);
+    text-align: center;
+    padding: 1rem 0;
+  }
+  
+  .header nav a {
+    color: var(--text-color);
+    margin: 0 1rem;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .header nav a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Footer styles */
+  .footer {
+    background: var(--secondary-color);
+    color: var(--text-color);
+    text-align: center;
+    padding: 1rem 0;
+  }
+  
+  /* Hero section */
+  .hero {
+    text-align: center;
+    padding: 2rem 0;
+    background: var(--primary-color);
+    color: var(--text-color);
+  }
+  
+  .hero h2 {
+    font-size: 2rem;
+  }
+  
+  .hero p {
+    font-size: 1.2rem;
+  }
+  
+  /* Features section */
+  .features {
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .features h2 {
+    color: var(--secondary-color);
+  }
+  
+  .feature-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .feature-card {
+    margin: 1rem;
+    padding: 1rem;
+    border: 2px solid var(--primary-color);
+    border-radius: 8px;
+    max-width: 300px;
+    text-align: center;
+    background: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .feature-card h3 {
+    color: var(--primary-color);
+    margin: 0.5rem 0;
+  }
+  
+  .feature-card p {
+    color: #666;
+  }
+
+  .home {
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .features-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 2rem 0;
+  }
+  
+  .features-list li {
+    margin-bottom: 1.5rem;
+    text-align: left;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }  
+  
+  /* Buttons (optional addition for interactivity) */
+  button {
+    background: var(--primary-color);
+    color: var(--text-color);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background: var(--secondary-color);
+  }
+  

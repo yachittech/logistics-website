@@ -1,0 +1,339 @@
+Table container to hold the header and table
+.table-container {
+    margin-top: 20px;
+    width: 100%;
+  }
+  
+  /* Table header styling */
+  .table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  /* Title of the table */
+  .table-header h2 {
+    font-size: 18px;
+    color: #333;
+    margin: 0;
+  }
+  
+  /* Container for the buttons */
+  .table-buttons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  /* Styling for the "Create New Order" button */
+  .create-order-btn,
+  .export-btn {
+    padding: 8px 16px;
+    font-size: 14px;
+    background-color: #4f48d4; /* Secondary color */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Hover effect for buttons */
+  .create-order-btn:hover,
+  .export-btn:hover {
+    background-color: #3e3b99;
+  }
+  
+  /* Styling for the order table */
+  .order-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  /* Table cells and headers styling */
+  .order-table th,
+  .order-table td {
+    padding: 12px 18px;
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+
+  }
+  
+  .order-table th {
+    background-color: #4f48d4;
+    color: #ffffff;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  .order-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .order-table tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .order-table tr {
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Action button inside the table */
+  button.track-btn {
+    padding: 8px 12px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+  }
+  
+  button.track-btn:hover {
+    background-color: #3e3b99;
+  }
+  
+  button.track-btn:active {
+    background-color: #3b3799;
+  }
+
+  button.create-order-btn {
+    background-color: green;
+    border-radius: 30px;
+  }
+  
+  button.action-btn:hover {
+    background-color: none;
+  }
+
+ .action-container {
+  position: relative;
+}
+
+.action-pen-btn {
+  background: none;
+  border: none;
+  color: var(--text-color);
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  /* min-width: 120px; */
+}
+
+.dropdown-item {
+  padding: 0.5rem 1rem;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+  /* width: 30%; */
+}
+
+/* .dropdown-item:hover {
+  background: #f0f0f0;
+} */
+
+.dropdown-item:hover {
+  background-color: #f0f0f0;
+}
+
+/* Dropdown container */
+.action-dropdown-container {
+  position: relative;
+  display: inline-grid;
+}
+
+/* Action button (pen icon) */
+.action-btn {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #333;
+}
+
+
+
+
+
+
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--primary-color);
+  color: var(--text-color);
+  padding: 0.5rem 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.menu-icon {
+  background: none;
+  border: none;
+  color: var(--text-color);
+  font-size: 1.5rem;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+.logo {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  padding-right: 2rem;
+  text-decoration: none;
+}
+
+.profile {
+  margin-right: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+}
+
+.dropdown.show {
+  width: 7rem;
+}
+
+nav a {
+  margin-left: 1rem;
+  color: var(--text-color);
+  text-decoration: none; /* Ensure no underline by default */
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: none; /* Prevent underline on hover */
+  color: var(--hover-color); /* Optional: Change the text color on hover */
+}
+
+/* Sidebar styles */
+.sidebar {
+  position: absolute;
+  top: 0;
+  left: -300px;
+  width: 300px;
+  height: 100%;
+  background: var(--secondary-color);
+  color: #fff;
+  padding: 1rem;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  z-index: 1100;
+}
+
+.sidebar.show {
+  transform: translateX(300px);
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+.sidebar h2 {
+  margin-bottom: 1rem;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar ul li {
+  margin-bottom: 1rem;
+}
+
+.sidebar ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.sidebar ul li a:hover {
+  text-decoration: none; /* Prevent underline on sidebar links */
+}
+
+/* Overlay styles */
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.action-dropdown-container:hover {
+  background-color: none;
+}
+
+.overlay.show {
+  display: block;
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  /* background: var(--secondary-color); */
+  padding: 0.5rem;
+  border-radius: 4px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown.show {
+  display: block;
+}
+
+.dropdown a {
+  display: block;
+  color: var(--text-color);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+}
+
+.dropdown a:hover {
+  /* background: var(--primary-color); */
+  text-decoration: none; /* Prevent underline on hover */
+}
+
+

@@ -1,0 +1,136 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: var(--secondary-color);
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  .main-content {
+    flex: 1;
+    /* margin-top: 10px; Height of header */
+    margin-bottom: 50px; /* Height of footer */
+    overflow-y: auto;
+    padding: 1rem;
+  }
+  
+  .main-content::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .main-content::-webkit-scrollbar-thumb {
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+  }
+  
+  .main-content::-webkit-scrollbar-track {
+    background-color: #f4f4f4;
+  }
+  
+  /* General styling for the table container */
+ .order-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  .order-table th,
+  .order-table td {
+    padding: 12px 18px;
+    text-align: left;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .order-table th {
+    background-color: #4f48d4; /* Secondary color */
+    color: #ffffff;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  .order-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .order-table tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .order-table tr {
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Styling the buttons inside the table */
+  button.track-btn {
+    padding: 8px 12px;
+    background-color: #4f48d4; /* Secondary color */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+  }
+  
+  button.track-btn:hover {
+    background-color: #3e3b99; /* Darker shade of the secondary color */
+  }
+  
+  button.track-btn:active {
+    background-color: #3b3799; /* Darker shade on click */
+  }
+  
+  /* Styling the first and last columns */
+  .order-table td:first-child,
+  .order-table th:first-child {
+    width: 15%; /* Set the width of the first column */
+  }
+  
+  .order-table td:last-child,
+  .order-table th:last-child {
+    width: 18%; /* Set the width of the last column */
+  }
+  
+  /* Add a more spaced look between rows */
+  .order-table td {
+    padding: 15px;
+    line-height: 1.5;
+  }
+  
+  .order-table th {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  
+  /* Hover effect for rows */
+  .order-table tr:hover {
+    background-color: #e9e9e9;
+  }
+  
